@@ -1,5 +1,4 @@
 #include "byte_stream.hh"
-
 // Dummy implementation of a flow-controlled in-memory byte stream.
 
 // For Lab 0, please replace with a real implementation that passes the
@@ -12,11 +11,15 @@ void DUMMY_CODE(Targs &&... /* unused */) {}
 
 using namespace std;
 
-ByteStream::ByteStream(const size_t capacity) { DUMMY_CODE(capacity); }
+ByteStream::ByteStream(const size_t capacity) { byteStreamCapacity = capacity; }
 
 size_t ByteStream::write(const string &data) {
-    DUMMY_CODE(data);
-    return {};
+    size_t dataSize = data.size();
+    byteStreamCapacity -= dataSize;
+    if (byteStreamCapacity > 0) {
+        ByteStream::data.append(data);
+    }
+    return dataSize;
 }
 
 //! \param[in] len bytes will be copied from the output side of the buffer
