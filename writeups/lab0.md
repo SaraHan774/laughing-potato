@@ -14,11 +14,25 @@ My name: Sara Gahee Han
 
 ### 과제 명세
 
-1. apps 폴더 밑의 webget.cc 에 비어있는 코드 작성하기.
-   - 힌트
-     - HTTP 의 라인은 "\r\n"으로 끝나야 한다.
-     - Connection : close 를 요청에 보내는 것을 잊지 말 것.
-     - 10줄 정도의 코드면 충분함.
-   - 컴파일 `make`
-     - 에러 메시지가 나오면 코드를 고쳐야함.
-2. 마감 기한 : 10월 14일 ~ 10월 22일 (cs144 의 과제 기간을 따라서 8일로 설정)
+#### 1. apps 폴더 밑의 webget.cc 에 비어있는 코드 작성하기.
+
+- 힌트
+
+  - HTTP 의 라인은 "\r\n"으로 끝나야 한다.
+  - Connection : close 를 요청에 보내는 것을 잊지 말 것.
+  - 10줄 정도의 코드면 충분함.
+
+- 컴파일 `make`
+
+  - 에러 메시지가 나오면 코드를 고쳐야함.
+
+- 마감 기한 : 10월 14일 ~ 10월 22일 (cs144 의 과제 기간을 따라서 8일로 설정)
+
+- 테스트 결과 화면
+  <img src="./webget-test-result.jpg" alt="webget-test-result" style="zoom: 50%;" />
+
+#### 2. An in-memory reliable byte stream
+
+- byte_stream.hh 와 byte_stream.cc 파일의 인터페이스를 구현하라.
+
+- 마감 기한 : 10월 15일 ~ 10월 30일 (cs144 의 과제 기간을 따라서 14일로 설정)

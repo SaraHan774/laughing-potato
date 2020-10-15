@@ -7,18 +7,22 @@
 using namespace std;
 
 void get_URL(const string &host, const string &path) {
-    // Your code here.
+    TCPSocket sock1;
+    sock1.connect(Address(host, "80"));
 
-    // You will need to connect to the "http" service on
-    // the computer whose name is in the "host" string,
-    // then request the URL path given in the "path" string.
+    string request;
+    request.append("GET " + path + " HTTP/1.1\r\n");
+    request.append("Host: " + host + "\r\n");
+    request.append("Accept: */*\r\n\r\n");
 
-    // Then you'll need to print out everything the server sends back,
-    // (not just one call to read() -- everything) until you reach
-    // the "eof" (end of file).
+    sock1.write(request);
+    sock1.shutdown(SHUT_WR);
 
-    cerr << "Function called: get_URL(" << host << ", " << path << ").\n";
-    cerr << "Warning: get_URL() has not been implemented yet.\n";
+    while (!sock1.eof()) {
+        auto recvd = sock1.read();
+        std::cout << recvd;
+    }
+    sock1.close();
 }
 
 int main(int argc, char *argv[]) {
